@@ -10,8 +10,8 @@ import { workspaceResolver, setOrChangeWorkspace } from './workspaceResolver';
 import { IAppModel, GoLiveEvent, GoOfflineEvent } from './IAppModel';
 import { LiveShareHelper } from './LiveShareHelper';
 
-import * as opn from 'opn';
-import * as ips from 'ips';
+const opn = require('opn');
+const ips = require('ips');
 
 export class AppModel implements IAppModel {
 
