@@ -4,8 +4,12 @@ import { workspace } from 'vscode';
 
 export interface IProxy {
     enable: boolean;
-    baseUri: string;
-    proxyUri: string;
+    mappers: Array<IProxyMapper>;
+}
+
+export interface IProxyMapper {
+    route: string;
+    target: string;
 }
 
 export interface IHttps {
@@ -15,10 +19,15 @@ export interface IHttps {
     passphrase: string;
 }
 
+export interface IHtmlReplaceFilter {
+    pathMatch: string;
+    replacePairs: Array<Array<string>>;
+}
+
 export class Config {
 
     public static get configuration() {
-        return workspace.getConfiguration('liveServer.settings');
+        return workspace.getConfiguration('ztkLiveServer.settings');
     }
 
     private static getSettings<T>(val: string): T {
@@ -93,7 +102,7 @@ export class Config {
         return Config.getSettings<boolean>('useWebExt') || false;
     }
 
-    public static get getProxy(): IProxy {
+    public static get proxy(): IProxy {
         return Config.getSettings<IProxy>('proxy');
     }
 
@@ -126,6 +135,10 @@ export class Config {
     }
 
     public static setMutiRootWorkspaceName(val: string) {
-       return Config.configuration.update('multiRootWorkspaceName', val, false);
+        return Config.configuration.update('multiRootWorkspaceName', val, false);
+    }
+
+    public static get htmlReplaceFilters() {
+        return Config.getSettings<Array<IHtmlReplaceFilter>>('htmlReplaceFilters');
     }
 }

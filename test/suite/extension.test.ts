@@ -15,12 +15,12 @@ import * as myExtension from '../../src/extension';
 suite('Extension Tests', () => {
 
     test('Extension should be present', () => {
-        assert.ok(vscode.extensions.getExtension('ritwickdey.LiveServer'));
+        assert.ok(vscode.extensions.getExtension('zhangtke.ztk-live-server'));
     });
 
     test('should activate', function () {
         this.timeout(1 * 60 * 1000);
-        return vscode.extensions.getExtension('ritwickdey.LiveServer').activate()
+        return vscode.extensions.getExtension('zhangtke.ztk-live-server').activate()
             .then((api) => {
                 assert.ok(true);
             });
@@ -29,12 +29,12 @@ suite('Extension Tests', () => {
     test('should register all live server commands', function () {
         return vscode.commands.getCommands(true).then((commands) => {
             const COMMANDS = [
-                'extension.liveServer.goOnline',
-                'extension.liveServer.goOffline',
-                'extension.liveServer.changeWorkspace'
+                'extension.ztkLiveServer.goOnline',
+                'extension.ztkLiveServer.goOffline',
+                'extension.ztkLiveServer.changeWorkspace'
             ];
             const foundLiveServerCommands = commands.filter((value) => {
-                return COMMANDS.indexOf(value) >= 0 || value.startsWith('extension.liveServer.');
+                return COMMANDS.indexOf(value) >= 0 || value.startsWith('extension.ztkLiveServer.');
             });
             assert.equal(foundLiveServerCommands.length, COMMANDS.length);
         });

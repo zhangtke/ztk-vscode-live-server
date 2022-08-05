@@ -85,7 +85,7 @@ export const config: Options.Testrunner = {
             extensionPath: path.join(__dirname, '..'),
             workspacePath: path.join(__dirname, '..'),
             userSettings: {
-                'liveServer.settings.NoBrowser': true
+                'ztkLiveServer.settings.NoBrowser': true
             }
         } as Partial<VSCodeOptions>
     } as VSCodeCapabilities],

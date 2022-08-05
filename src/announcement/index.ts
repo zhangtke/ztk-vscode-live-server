@@ -1,11 +1,11 @@
 import { Memento, extensions, window } from 'vscode';
 import * as opn from 'opn';
 
-export const SETUP_STRING = 'liveServer.setup.version';
+export const SETUP_STRING = 'ztkLiveServer.setup.version';
 
 export async function checkNewAnnouncement(memento: Memento) {
 
-    const packageJSON = extensions.getExtension('ritwickdey.LiveServer').packageJSON;
+    const packageJSON = extensions.getExtension('zhangtke.ztk-live-server').packageJSON;
     const announment = packageJSON.announcement;
 
     if (!announment && Object.keys(announment).length === 0) return;
@@ -18,7 +18,7 @@ export async function checkNewAnnouncement(memento: Memento) {
         const showDetails = 'Show Details';
         const choice = await window.showInformationMessage(announment.message, showDetails);
         if (choice === showDetails) {
-            const url = announment.url || 'https://github.com/ritwickdey/vscode-live-server';
+            const url = announment.url || 'https://github.com/zhangtke/ztk-vscode-live-server';
             opn(url);
         }
 

@@ -69,7 +69,7 @@ export class AppModel implements IAppModel {
             );
         }
         if (pathInfos.isNotOkay) {
-            this.showPopUpMsg('Invaild Path in liveServer.settings.root settings. live Server will serve from workspace root', true);
+            this.showPopUpMsg('Invaild Path in ztkLiveServer.settings.root settings. live Server will serve from workspace root', true);
         }
 
         if (this.isServerBusy) return;

@@ -25,7 +25,7 @@ describe('VSCode Live Server Extension', () => {
 
     it('should click on Go Live', async () => {
         const workbench = await driver.getWorkbench();
-        await workbench.elem.$('div[id="ritwickdey.LiveServer"]').click();
+        await workbench.elem.$('div[id="zhangtke.ztk-live-server"]').click();
 
         await workbench.elem.waitUntil(async () => {
             const notifications = await workbench.getNotifications();

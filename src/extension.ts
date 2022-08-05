@@ -14,20 +14,20 @@ export function activate(context: ExtensionContext) {
 
 
     context.subscriptions.push(commands
-        .registerCommand('extension.liveServer.goOnline', async (fileUri) => {
+        .registerCommand('extension.ztkLiveServer.goOnline', async (fileUri) => {
             await workspace.saveAll();
             appModel.Golive(fileUri ? fileUri.fsPath : null);
         })
     );
 
     context.subscriptions.push(commands
-        .registerCommand('extension.liveServer.goOffline', () => {
+        .registerCommand('extension.ztkLiveServer.goOffline', () => {
             appModel.GoOffline();
         })
     );
 
     context.subscriptions.push(commands
-        .registerCommand('extension.liveServer.changeWorkspace', () => {
+        .registerCommand('extension.ztkLiveServer.changeWorkspace', () => {
             appModel.changeWorkspaceRoot();
         })
     );

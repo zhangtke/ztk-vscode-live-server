@@ -106,6 +106,7 @@ export class Helper {
         });
 
         const file = Config.getFile;
+        const htmlReplaceFilters = Config.htmlReplaceFilters;
         return {
             port: port,
             host: '0.0.0.0',
@@ -121,7 +122,8 @@ export class Helper {
             fullReload: Config.getfullReload,
             useBrowserExtension: Config.getUseWebExt,
             onTagMissedCallback: onTagMissedCallback,
-            mount: mount
+            mount: mount,
+            htmlReplaceFilters: htmlReplaceFilters
         };
     }
 
@@ -142,10 +144,12 @@ export class Helper {
     }
 
     static getProxySetup() {
-        const proxySetup = Config.getProxy;
-        let proxy = [[]];
-        if (proxySetup.enable === true) {
-            proxy[0].push(proxySetup.baseUri, proxySetup.proxyUri);
+        const proxySetup = Config.proxy;
+        let proxy = [];
+        if (proxySetup.enable === true && proxySetup.mappers) {
+            proxySetup.mappers.forEach(mapper => {
+                proxy.push([mapper.route, mapper.target]);
+            });
         }
         else {
             proxy = null; // required to change the type [[]] to black array [].

@@ -29,13 +29,13 @@ export class StatusbarUi {
 
     public static Live() {
         StatusbarUi.statusbar.text = '$(broadcast) Go Live';
-        StatusbarUi.statusbar.command = 'extension.liveServer.goOnline';
+        StatusbarUi.statusbar.command = 'extension.ztkLiveServer.goOnline';
         StatusbarUi.statusbar.tooltip = 'Click to run live server';
     }
 
     public static Offline(port: Number) {
         StatusbarUi.statusbar.text = `$(circle-slash) Port : ${port}`;
-        StatusbarUi.statusbar.command = 'extension.liveServer.goOffline';
+        StatusbarUi.statusbar.command = 'extension.ztkLiveServer.goOffline';
         StatusbarUi.statusbar.tooltip = 'Click to close server';
     }
 
