@@ -1,6 +1,6 @@
 import { remote } from 'webdriverio';
 
-describe('VSCode Live Server Extension', () => {
+describe('VSCode Ztk Live Server Extension', () => {
     let port: number;
     let browser: WebdriverIO.Browser;
 
@@ -47,7 +47,7 @@ describe('VSCode Live Server Extension', () => {
 
     it('should show content of root directory and serve files', async () => {
         await browser.$('span=README.md').click();
-        expect(await browser.getPageSource()).toContain('# Live Server');
+        expect(await browser.getPageSource()).toContain('# Ztk Live Server');
     });
 
     after('shutdown browser', () => {

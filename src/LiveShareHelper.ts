@@ -64,7 +64,7 @@ export class LiveShareHelper implements vscode.Disposable {
             // only share the server when we're live and VS Live Share session is active
             this.sharedServer = await this.liveshare.shareServer({
                 port: this.appModel.runningPort,
-                displayName: 'Live Server',
+                displayName: 'Ztk Live Server',
                 browseUrl: `http://localhost:${this.appModel.runningPort}/${this.livePathUri.replace(/\\/gi, '/')}`
             });
         }

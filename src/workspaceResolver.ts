@@ -6,7 +6,7 @@ export function setOrChangeWorkspace() {
     const workspaceNames = workspaceFolders.map(e => e.name);
 
     return window.showQuickPick(workspaceNames, {
-        placeHolder: 'choose workspace for Live Server',
+        placeHolder: 'choose workspace for Ztk Live Server',
         ignoreFocusOut: true
     }).then(workspaceName => {
         if (workspaceName) {

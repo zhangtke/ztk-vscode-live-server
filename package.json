@@ -95,7 +95,7 @@
 			]
 		},
 		"configuration": {
-			"title": "Live Server Config",
+			"title": "Ztk Live Server Config",
 			"properties": {
 				"ztkLiveServer.settings.port": {
 					"type": [
